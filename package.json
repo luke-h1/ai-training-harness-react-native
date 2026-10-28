@@ -1,0 +1,22 @@
+{
+  "name": "mlkit-training-harness-react-native",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "bun run lint:js && bun run lint:python && bun run lint:native",
+    "lint:js": "oxlint",
+    "lint:js:fix": "oxlint --fix",
+    "lint:python": "uvx ruff check .",
+    "lint:python:fix": "uvx ruff check --fix .",
+    "lint:native": "bun run lint:swift && bun run lint:kotlin",
+    "lint:swift": "./scripts/lint-swift.sh",
+    "lint:kotlin": "./scripts/lint-kotlin.sh",
+    "format": "oxfmt && uvx ruff format .",
+    "format:check": "oxfmt --check && uvx ruff format --check .",
+    "check": "LINT_CHECK=1 bun run lint && bun run format:check"
+  },
+  "devDependencies": {
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0"
+  }
+}

@@ -11,3 +11,8 @@ __pycache__/
 # sourcekit-lsp build server, written by example-app/scripts/swift-lsp.sh
 buildServer.json
 .compile
+
+# kotlin-lsp workspace, written by example-app/scripts/kotlin-lsp.sh
+workspace.json
+workspace.json.orig
+.zed-jar-cache/

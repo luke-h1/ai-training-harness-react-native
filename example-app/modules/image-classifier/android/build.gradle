@@ -15,4 +15,13 @@ android {
   lintOptions {
     abortOnError false
   }
+  aaptOptions {
+    noCompress "tflite"
+  }
+}
+
+dependencies {
+  implementation 'com.google.mlkit:image-labeling:17.0.9'
+  implementation 'com.google.ai.edge.litert:litert:1.4.2'
+  implementation 'androidx.exifinterface:exifinterface:1.4.1'
 }

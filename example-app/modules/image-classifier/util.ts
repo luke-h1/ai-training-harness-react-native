@@ -18,8 +18,8 @@ export async function classifyImage(imageUri: string): Promise<Classification> {
   const result = await native.classifyAsync(imageUri);
 
   return {
-    predictions: result.predictions.toSorted(byConfidence),
-    labels: result.labels.toSorted(byConfidence),
+    predictions: [...result.predictions].sort(byConfidence),
+    labels: [...result.labels].sort(byConfidence),
   };
 }
 

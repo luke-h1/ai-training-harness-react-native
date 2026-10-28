@@ -1,0 +1,7 @@
+bicycle
+bird
+car
+cat
+dog
+flower
+other

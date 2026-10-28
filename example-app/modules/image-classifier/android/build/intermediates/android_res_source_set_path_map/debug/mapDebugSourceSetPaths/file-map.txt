@@ -1,0 +1,9 @@
+expo.modules.imageclassifier.image-classifier-pngs-0 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/generated/res/pngs/debug
+expo.modules.imageclassifier.image-classifier-updated_navigation_xml-1 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/generated/updated_navigation_xml/debug
+expo.modules.imageclassifier.image-classifier-mergeDebugResources-2 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+expo.modules.imageclassifier.image-classifier-mergeDebugResources-3 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+expo.modules.imageclassifier.image-classifier-debug-4 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/intermediates/merged_res/debug/mergeDebugResources
+expo.modules.imageclassifier.image-classifier-debug-5 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/build/intermediates/packaged_res/debug/packageDebugResources
+expo.modules.imageclassifier.image-classifier-debug-6 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/src/debug/res
+expo.modules.imageclassifier.image-classifier-main-7 /Users/lukehowsam/srv/dev/ai-training-harness-react-native/example-app/modules/image-classifier/android/src/main/res
+gradleHome-0 /Users/lukehowsam/.gradle

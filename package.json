@@ -14,7 +14,8 @@
     "format": "oxfmt && uvx ruff format .",
     "format:check": "oxfmt --check && uvx ruff format --check .",
     "check": "LINT_CHECK=1 bun run lint && bun run format:check",
-    "lsp:ios": "./example-app/scripts/swift-lsp.sh"
+    "lsp:ios": "./example-app/scripts/swift-lsp.sh",
+    "lsp:android": "./example-app/scripts/kotlin-lsp.sh"
   },
   "devDependencies": {
     "oxfmt": "0.75.0",

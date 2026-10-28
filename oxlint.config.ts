@@ -24,6 +24,10 @@ export default defineConfig({
     'training-harness/**',
   ],
   rules: {
+    'import/no-unassigned-import': ['warn', { allow: ['expo-router/entry', '**/unistyles'] }],
+    // Hermes has no Array#toSorted or Array#toReversed, so these fixes crash at runtime
+    'unicorn/no-array-sort': 'off',
+    'unicorn/no-array-reverse': 'off',
     'no-nested-ternary': 'error',
     'no-var': 'error',
     'prefer-const': 'error',

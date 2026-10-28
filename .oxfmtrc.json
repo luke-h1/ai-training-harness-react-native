@@ -22,6 +22,6 @@
     "training-harness/data",
     "training-harness/.venv",
     "**/*.mlmodelc",
-    "app/modules/*/eval-*.json"
+    "example-app/modules/*/eval-*.json"
   ]
 }

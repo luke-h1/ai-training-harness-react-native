@@ -19,8 +19,8 @@ export default defineConfig({
     '**/build/**',
     '**/dist/**',
     '**/.expo/**',
-    'app/android/**',
-    'app/ios/**',
+    'example-app/android/**',
+    'example-app/ios/**',
     'training-harness/**',
   ],
   rules: {

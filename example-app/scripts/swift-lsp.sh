@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#  ./scripts/swift-lsp.sh
+#  DEVELOPER_DIR=/path/to/Xcode.app/Contents/Developer ./scripts/swift-lsp.sh
+#
+# Generates ios/, builds it once and writes buildServer.json and .compile at the
+# repo root, so sourcekit-lsp in Zed can resolve ExpoModulesCore and the pods.
+# Run it again after you add a native dependency or change a podspec.
+
+APP="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(cd "$APP/.." && pwd)"
+WORKSPACE="$APP/ios/exampleapp.xcworkspace"
+SCHEME="exampleapp"
+
+# Must be the Xcode that Zed's sourcekit-lsp uses: modules built by a newer
+# Swift compiler cannot be read by an older sourcekit-lsp.
+export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
+
+if ! command -v xcode-build-server >/dev/null; then
+  echo "xcode-build-server is not installed. Run: brew install xcode-build-server" >&2
+  exit 1
+fi
+
+cd "$APP"
+CI=1 bunx expo prebuild -p ios
+
+# xcode-build-server reads compiler flags from the full xcodebuild log, so do
+# not pass -quiet. A failed app build still logs the flags of every target that
+# compiled, which is enough for sourcekit-lsp, so warn and continue.
+# An incremental build only logs the targets it rebuilt, so later runs append to
+# .compile. The first run also writes buildServer.json.
+cd "$ROOT"
+parse=(xcode-build-server parse)
+if [[ -f .compile && -f buildServer.json ]]; then
+  parse+=(-a -o .compile)
+fi
+if ! xcodebuild \
+  -workspace "$WORKSPACE" \
+  -scheme "$SCHEME" \
+  -configuration Debug \
+  -destination 'generic/platform=iOS Simulator' \
+  build 2>&1 | "${parse[@]}" >/dev/null; then
+  echo "warning: xcodebuild failed. Files in targets that did not compile will have no completions." >&2
+fi
+
+echo "Wrote $ROOT/buildServer.json and $ROOT/.compile. In Zed, run 'editor: restart language server'."

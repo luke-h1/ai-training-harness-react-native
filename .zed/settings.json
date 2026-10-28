@@ -1,0 +1,18 @@
+{
+  "languages": {
+    "Swift": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "exec \"$(git -C \"$(dirname \"$1\")\" rev-parse --show-toplevel)/scripts/swift-fix-stdin.sh\" \"$1\"",
+            "swift-fix",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}

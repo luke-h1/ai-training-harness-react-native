@@ -8,7 +8,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TRAINING="$ROOT/training-harness"
 DATA="${HARNESS_DATA:-$TRAINING/data}"
-MODULE="$ROOT/app/modules/image-classifier"
+MODULE="$ROOT/example-app/modules/image-classifier"
 IMAGE="${TFLITE_IMAGE:-classifier-tflite}"
 MIN_TOP1="${MIN_TOP1:-0.85}"
 VERSION="${MODEL_VERSION:-1.0}"

@@ -1,4 +1,13 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Classification } from '@modules/image-classifier';
+import { StyleSheet, Text, View } from 'react-native';
+
+type State =
+  | { status: 'idle' }
+  | { status: 'working'; uri: string }
+  | { status: 'done'; uri: string; result: Classification; millis: number }
+  | { status: 'failed'; uri: string | null; message: string };
+
+const percent = (value: number) => `${Math.round(value * 100)}%`;
 
 export default function Index() {
   return (
@@ -11,7 +20,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

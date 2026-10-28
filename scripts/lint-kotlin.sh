@@ -15,7 +15,7 @@ files=("$@")
 if [ "${#files[@]}" -eq 0 ]; then
   while IFS= read -r file; do
     files+=("$file")
-  done < <(find app/modules -type d \( -name build -o -name node_modules \) -prune -o -type f \( -name '*.kt' -o -name '*.kts' \) -print)
+  done < <(find example-app/modules -type d \( -name build -o -name node_modules \) -prune -o -type f \( -name '*.kt' -o -name '*.kts' \) -print)
   if [ "${#files[@]}" -eq 0 ]; then
     echo "No Kotlin files to lint."
     exit 0

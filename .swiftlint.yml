@@ -1,8 +1,8 @@
 included:
-  - app/modules
+  - example-app/modules
 
 excluded:
-  - app/ios
+  - example-app/ios
   - '**/build'
   - '**/.build'
   - '**/node_modules'

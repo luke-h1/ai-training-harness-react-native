@@ -26,7 +26,7 @@ format() {
 files=("$@")
 status=0
 if [ "${#files[@]}" -eq 0 ]; then
-  format app/modules || status=1
+  format example-app/modules || status=1
   [ "${LINT_CHECK:-}" = "1" ] || swiftlint lint --fix --quiet || true
   swiftlint lint --strict --quiet || status=1
 else

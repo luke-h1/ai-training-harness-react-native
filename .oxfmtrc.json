@@ -19,8 +19,8 @@
     "build",
     "dist",
     "bun.lock",
-    "training/data",
-    "training/.venv",
+    "training-harness/data",
+    "training-harness/.venv",
     "**/*.mlmodelc",
     "app/modules/*/eval-*.json"
   ]

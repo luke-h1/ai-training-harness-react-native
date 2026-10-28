@@ -12,10 +12,11 @@ import time
 
 import torch
 import torch.nn as nn
-from harness import CHECKPOINT, IMAGENET_MEAN, IMAGENET_STD, INPUT_SIZE, TRAIN_DIR
-from model import ARCHITECTURES, build_model
 from torch.utils.data import DataLoader, Subset, WeightedRandomSampler
 from torchvision import datasets, transforms
+
+from harness import CHECKPOINT, IMAGENET_MEAN, IMAGENET_STD, INPUT_SIZE, TRAIN_DIR
+from model import ARCHITECTURES, build_model
 
 SEED = 22
 
@@ -147,8 +148,10 @@ def main():
             best = val_acc
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
 
-    model.load_state_dict(best_state)
-    evaluate(per_class=True)
+    if best_state is None:
+        raise SystemExit('no epochs ran, so there is no model to save')
+    _ = model.load_state_dict(best_state)
+    _ = evaluate(per_class=True)
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     torch.save(
         {

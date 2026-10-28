@@ -5,9 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent  # Absolute path of the folder that contains this script
 DATA = Path(os.environ.get('HARNESS_DATA', ROOT / 'data')).expanduser()
 TRAIN_DIR = DATA / 'train'  # Images for training
-HOLDOUT_DIR = (
-    DATA / 'holdout'
-)  # Images the model never trains on, used for the final accuracy check
+HOLDOUT_DIR = DATA / 'holdout'  # Images the model never trains on, used for the final accuracy check
 OUT_DIR = DATA / 'out'  # build outputs
 CHECKPOINT = OUT_DIR / 'classifier.pt'  # PyTorch weights
 COREML_MODEL = OUT_DIR / 'Classifier.mlpackage'  # IOS

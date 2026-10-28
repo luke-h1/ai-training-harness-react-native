@@ -168,9 +168,7 @@ def collect_evidence(
     return images
 
 
-def assign_label(
-    evidence: ImageEvidence, min_box_area: float, background: str | None
-) -> str | None:
+def assign_label(evidence: ImageEvidence, min_box_area: float, background: str | None) -> str | None:
     """
     Return one label for the image, or None to skip it.
     """
@@ -203,9 +201,7 @@ def find_candidates(
     background: str | None,
 ) -> Iterator[Candidate]:
     files = split_files(split)
-    evidence = collect_evidence(
-        read_csv(files['boxes']), read_csv(files['labels']), label_by_mid, ambiguous
-    )
+    evidence = collect_evidence(read_csv(files['boxes']), read_csv(files['labels']), label_by_mid, ambiguous)
 
     for row in read_csv(files['images']):
         image_id = row['ImageID']

@@ -21,7 +21,7 @@ export default defineConfig({
     '**/.expo/**',
     'app/android/**',
     'app/ios/**',
-    'training/**',
+    'training-harness/**',
   ],
   rules: {
     'no-nested-ternary': 'error',

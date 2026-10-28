@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Export the trained checkpoint for both platforms and copy it into the app's native module.
 #   scripts/build-model.sh            # export, evaluate, install
-#   MIN_TOP1=0.9 scripts/release-model.sh
+#   MIN_TOP1=0.9 scripts/build-model.sh
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-TRAINING="$ROOT/training"
+TRAINING="$ROOT/training-harness"
 DATA="${HARNESS_DATA:-$TRAINING/data}"
 MODULE="$ROOT/app/modules/image-classifier"
 IMAGE="${TFLITE_IMAGE:-classifier-tflite}"
@@ -14,7 +14,7 @@ MIN_TOP1="${MIN_TOP1:-0.85}"
 VERSION="${MODEL_VERSION:-1.0}"
 
 if [[ ! -f "$DATA/out/classifier.pt" ]]; then
-  echo "No checkpoint at $DATA/out/classifier.pt. Run training/train.py first." >&2
+  echo "No checkpoint at $DATA/out/classifier.pt. Run training-harness/train.py first." >&2
   exit 1
 fi
 

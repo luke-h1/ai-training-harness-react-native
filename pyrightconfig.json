@@ -1,0 +1,6 @@
+{
+  "venvPath": "training-harness",
+  "venv": ".venv",
+  "pythonVersion": "3.11",
+  "executionEnvironments": [{ "root": "training-harness" }]
+}

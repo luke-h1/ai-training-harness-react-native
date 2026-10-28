@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
-from harness import CHECKPOINT, IMAGENET_MEAN, IMAGENET_STD
 from torchvision import models
+
+from harness import CHECKPOINT, IMAGENET_MEAN, IMAGENET_STD
 
 # compatible w/ amd64 docker image
 torch.backends.nnpack.set_flags(False)

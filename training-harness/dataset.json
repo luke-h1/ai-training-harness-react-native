@@ -1,0 +1,16 @@
+{
+  "splits": ["validation", "test"],
+  "perClass": 700,
+  "holdoutPercent": 10,
+  "minBoxArea": 0.1,
+  "maxSide": 512,
+  "classes": {
+    "bird": "Bird",
+    "cat": "Cat",
+    "dog": "Dog",
+    "car": "Car",
+    "bicycle": "Bicycle",
+    "flower": "Flower"
+  },
+  "background": "other"
+}

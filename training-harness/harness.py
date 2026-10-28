@@ -37,7 +37,7 @@ def load_dataset_config(path=ROOT / 'dataset.json'):
         return json.load(handle)
 
 
-def labelled_images(root: str):
+def labelled_images(root: str | Path):
     for class_dir in sorted(Path(root).iterdir()):
         if not class_dir.is_dir():
             continue
@@ -46,7 +46,7 @@ def labelled_images(root: str):
                 yield class_dir.name, path
 
 
-def device_input(path: str):
+def device_input(path: str | Path):
     """
     Crop which both native modules will apply (exif orientation, center square and then bi-linear resize)
     """

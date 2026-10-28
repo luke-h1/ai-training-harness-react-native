@@ -21,7 +21,9 @@ ARCHITECTURES = {
 def build_model(arch: str, num_classes: int, pretrained=False):
     factory, weights = ARCHITECTURES[arch]
     model = factory(weights=weights if pretrained else None)
-    model.classifier[3] = nn.Linear(model.classifier[3].in_features, num_classes)
+    head = model.classifier[3]
+    assert isinstance(head, nn.Linear)
+    model.classifier[3] = nn.Linear(head.in_features, num_classes)
     return model
 
 

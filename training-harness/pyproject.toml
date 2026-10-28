@@ -6,7 +6,7 @@ dependencies = [
   "coremltools==9.0; sys_platform == 'darwin'",
   "numpy>=1.26",
   "pillow>=10",
-  "torch==2.7.1",
+  "torch==2.13.0",
   "torchvision==0.22.1",
 ]
 
